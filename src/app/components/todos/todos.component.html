@@ -1,0 +1,45 @@
+<div class="container">
+  <br>
+    <div class="row mt-5">
+        <div class="col-4 add-todo-container">
+          <h1 class="add-todo text-center">Add Todo</h1>
+          <form #form="ngForm" (ngSubmit)="addTodo()">
+            <div class="mb-3">
+              <label for="description" class="form-label">Description:</label>
+              <input type="text" class="form-control" id="description"
+                placeholder="Enter your todo here..."
+                name="description"
+                [(ngModel)]="newTodo.description">
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-7 table-container">
+          <h1 class="my-todos text-center">My Todos</h1>
+          <table class="table text-center table-bordered table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let todo of todos">
+                <td [class.stroke]="todo.isCompleted">{{ todo.description }}</td>
+                <td>{{ todo.createdDate | date: 'MM/dd/yyyy hh:mm a'}}</td>
+                <td><input id="status-checkbox" type="checkbox" 
+                  [checked]="todo.isCompleted" 
+                  (change)="onCompletedChange(todo.id, todo)"/>
+                </td>
+                <td><a [routerLink]="[]" (click)="deleteTodo(todo.id)"><i class='bx bx-trash trash-icon' ></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>

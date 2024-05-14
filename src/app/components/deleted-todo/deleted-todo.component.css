@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.my-deleted-todos{
+    font-size: 30px;
+}
+
+.table-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 60px;
+    width: 70%;
+}
+
+.table{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.undo-icon{
+    font-size: 20px;
+    color: green;
+}
+
+td{
+    background: rgba(250, 217, 248,0.3);
+}
